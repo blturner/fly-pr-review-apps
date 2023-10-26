@@ -59,7 +59,7 @@ fi
 
 # Attach postgres cluster to the app if specified.
 if [ -n "$INPUT_POSTGRES" ]; then
-  flyctl postgres create --name "$app-db" --fork-from "$INPUT_POSTGRES" --vm-size "$INPUT_VM" || true
+  flyctl postgres create --name "$app-db" --fork-from "$INPUT_POSTGRES" --vm-size shared-cpu-1x || true
 fi
 
 # Trigger the deploy of the new version.

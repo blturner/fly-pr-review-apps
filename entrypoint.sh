@@ -62,7 +62,7 @@ if [ -n "$INPUT_POSTGRES" ]; then
   if flyctl postgres list | grep "$app-db" ; then
     echo "postgres app $app-db already exists"
   else
-    flyctl postgres create --name "$app-db" --fork-from "$INPUT_POSTGRES" --vm-size shared-cpu-1x
+    flyctl postgres create --name "$app-db" --fork-from "$INPUT_POSTGRES" --vm-size "$INPUT_VM"
     flyctl postgres attach --app "$app" "$app-db" --database-name mysite --yes
   fi
 fi
